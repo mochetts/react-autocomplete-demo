@@ -14,9 +14,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### Future work
+### Future work :crystal_ball:
 
-- Extract a results box component and result entry component to better organize the code.
-- Optimize state mutations & re-renders to increase performance
+- Extract components: `Results.js`, `Result.js` and `Loading.js` to better organize the code.
+- Optimize state mutations & re-renders to increase performance (or use Vue :stuck_out_tongue:)
 - Check if we can avoid the usage of state by leveraging stateless componenets
 - Use sass instead of css (!)
