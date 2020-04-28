@@ -18,5 +18,5 @@ You will also see any lint errors in the console.
 
 - Extract components: `Results.js`, `Result.js` and `Loading.js` to better organize the code.
 - Optimize state mutations & re-renders to increase performance (or use Vue :stuck_out_tongue:)
-- Check if we can avoid the usage of state by leveraging stateless componenets
+- Check if we can avoid the usage of state by leveraging stateless components
 - Use sass instead of css (!)
