@@ -1,9 +1,9 @@
-import React from 'react';
-import './Autocomplete.css';
+import React from 'react'
+import './Autocomplete.css'
 
 // Simple debouncing function that allows us to not hit the API unless the user
 // stops writing after `delay` milliseconds.
-let debounceId;
+let debounceId
 function debounce(f, delay) {
   // Cancels the setTimeout method execution
   clearTimeout(debounceId)
@@ -12,7 +12,7 @@ function debounce(f, delay) {
 
 class Autocomplete extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       results: [],
       loading: false,
@@ -41,10 +41,10 @@ class Autocomplete extends React.Component {
         this.setState({results: filteredResults, loading: false})
       })
     }, 500)
-  };
+  }
 
   handleKeyUp = (event) => {
-    const keyCode = event.keyCode;
+    const keyCode = event.keyCode
     if (keyCode === 40 && this.state.selectedIndex < this.state.results.length - 1) { // key down
       this.setState((prev) => ({
         selectedIndex: prev.selectedIndex + 1,
@@ -63,7 +63,7 @@ class Autocomplete extends React.Component {
         results: [],
       }))
     }
-  };
+  }
 
   // Auxiliary function that acts as an API fetch.
   fetchResults = async (searchText, delay = 1) => {
@@ -73,9 +73,9 @@ class Autocomplete extends React.Component {
       setTimeout(() => resolve(
         ['Max Casal', 'Alex Bouaziz', 'Martin Mochetti'].filter((value) => value.match(searchRegex))
       ), delay)
-    });
-    return await delayedResults;
-  };
+    })
+    return await delayedResults
+  }
 
   highlight = (value, resultIdx) => {
     const searchText = this.state.search
@@ -116,8 +116,8 @@ class Autocomplete extends React.Component {
           </span>
         ))}
       </div>
-    );
-  };
+    )
+  }
 
   loadingIndicator () {
     return (<div className="loading"> Loading... </div>)
@@ -135,8 +135,8 @@ class Autocomplete extends React.Component {
           {this.state.loading ?  this.loadingIndicator() : this.state.results.map((result, resultIdx) => this.highlight(result, resultIdx))}
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Autocomplete;
+export default Autocomplete
