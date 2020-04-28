@@ -20,13 +20,9 @@ class Autocomplete extends React.Component {
       search: '',
       selectedIndex: 0,
     }
-    this.handleChange = this.handleChange.bind(this);
-    this.setValue = this.setValue.bind(this);
-    this.handleKeyUp = this.handleKeyUp.bind(this);
-    this.fetchResults = this.fetchResults.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     const searchText = event.target.value
 
     this.setValue(searchText)
@@ -45,9 +41,9 @@ class Autocomplete extends React.Component {
         this.setState({results: filteredResults, loading: false})
       })
     }, 500)
-  }
+  };
 
-  handleKeyUp(event) {
+  handleKeyUp = (event) => {
     const keyCode = event.keyCode;
     if (keyCode === 40 && this.state.selectedIndex < this.state.results.length - 1) { // key down
       this.setState((prev) => ({
@@ -67,10 +63,10 @@ class Autocomplete extends React.Component {
         results: [],
       }))
     }
-  }
+  };
 
   // Auxiliary function that acts as an API fetch.
-  async fetchResults (searchText, delay = 1) {
+  fetchResults = async (searchText, delay = 1) => {
     // Make case insensitive searches
     const searchRegex = new RegExp(searchText.replace(/[\\\.\+\*\?\^\$\[\]\(\)\{\}\/\'\#\:\!\=\|]/ig, "\\$&"), 'gi')
     let delayedResults = new Promise((resolve, reject) => {
@@ -79,9 +75,9 @@ class Autocomplete extends React.Component {
       ), delay)
     });
     return await delayedResults;
-  }
+  };
 
-  highlight(value, resultIdx) {
+  highlight = (value, resultIdx) => {
     const searchText = this.state.search
     const regex = new RegExp(searchText.replace(/[\\\.\+\*\?\^\$\[\]\(\)\{\}\/\'\#\:\!\=\|]/ig, "\\$&"), 'gi')
     const matches = value.matchAll(regex)
@@ -121,7 +117,7 @@ class Autocomplete extends React.Component {
         ))}
       </div>
     );
-  }
+  };
 
   loadingIndicator () {
     return (<div className="loading"> Loading... </div>)
