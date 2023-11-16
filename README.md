@@ -1,7 +1,5 @@
 This is a very basic demonstration of a react autocomplete component. It's not meant for production usages as it lacks refinements and tunings.
 
-test
-
 ![autocomplete](https://user-images.githubusercontent.com/3678598/80542852-294fb780-8984-11ea-8bf9-71d4aadaee55.gif)
 
 ## Available Scripts
